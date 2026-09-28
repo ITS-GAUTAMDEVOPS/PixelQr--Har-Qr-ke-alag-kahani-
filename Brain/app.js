@@ -89,7 +89,7 @@
     return image?.src || qrImage;
   }
 
-  function generate(event) {
+  async function generate(event) {
     event.preventDefault();
     let value;
     try {
@@ -103,6 +103,13 @@
       showToast('QR generator did not load. Check your internet connection and try again.', true);
       return;
     }
+    let centerImage;
+    try {
+      centerImage = await window.qrImageInsert.getImage();
+    } catch (error) {
+      showToast(error.message, true);
+      return;
+    }
 
     output.innerHTML = '';
     output.style.setProperty('--qr-bg', bgInput.value);
@@ -111,6 +118,8 @@
       width: Number(sizeInput.value),
       height: Number(sizeInput.value),
       type: 'canvas',
+      image: centerImage,
+      imageOptions: window.qrImageInsert.imageOptions,
       margin: 0,
       qrOptions: {
         errorCorrectionLevel: 'H'

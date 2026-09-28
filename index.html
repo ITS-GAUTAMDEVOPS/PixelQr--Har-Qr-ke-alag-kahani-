@@ -11,7 +11,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/qr-image-insert.css">
   <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.9.2/lib/qr-code-styling.min.js" defer></script>
+  <script src="Brain/qr-image-insert.js" defer></script>
   <script src="Brain/app.js" defer></script>
 </head>
 <body>
@@ -57,6 +59,7 @@
               <label class="field-group style-group"><span class="field-label">Corner frame</span><select id="corner-style"><option value="square">Square</option><option value="rounded">Rounded</option><option value="extra-rounded" selected>Extra rounded</option><option value="dot">Dot</option></select></label>
               <label class="field-group style-group"><span class="field-label">Corner center</span><select id="corner-dot-style"><option value="square">Square</option><option value="dot" selected>Round</option></select></label>
             </div>
+            <label class="field-group image-upload"><span class="field-label">Center image <span class="optional">OPTIONAL</span></span><input id="qr-image" type="file" accept="image/*"><span class="input-hint">Add a logo or image from your device</span></label>
             <button class="generate-button" type="submit"><span class="button-qr-icon">▦</span> Generate QR code <span class="button-arrow">→</span></button>
             <p class="form-footnote"><span>✦</span> Your content stays private — nothing is uploaded.</p>
           </form>
