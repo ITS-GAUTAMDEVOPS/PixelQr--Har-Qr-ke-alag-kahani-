@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7faf7">
+  <meta name="description" content="Create beautiful, customizable QR codes for links, text, Wi-Fi, email, and more — free and instant.">
+  <title>Greencode — QR Code Generator</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+  <script src="Brain/app.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Greencode home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M5 5h9v9H5zM18 5h9v9h-9zM5 18h9v9H5z" stroke="currentColor" stroke-width="3"/><path d="M20 19h3v3h-3zM25 24h3v3h-3zM18 25h3v3h-3zM25 18h3v3h-3z" fill="currentColor"/></svg></span>
+        <span>green<span class="brand-light">code</span></span>
+      </a>
+      <div class="topbar-note"><span class="secure-dot"></span> Private by design <span class="note-divider">·</span> QR codes are made in your browser</div>
+      <a class="github-link" href="#generator">Start creating <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="top">
+      <section class="intro">
+        <div class="eyebrow"><span class="eyebrow-icon">✳</span> SIMPLE. INSTANT. YOURS.</div>
+        <h1>Your next QR code,<br><span>beautifully simple.</span></h1>
+        <p class="intro-copy">Turn links, text, and more into a QR code in seconds.<br class="desktop-break"> Customize it, download it, and share it anywhere.</p>
+        <div class="trust-points"><span><i>✓</i> Free forever</span><span><i>✓</i> No sign-up needed</span><span><i>✓</i> Made on your device</span></div>
+      </section>
+
+      <section class="generator" id="generator" aria-label="QR code generator">
+        <div class="form-panel">
+          <div class="panel-heading"><div><span class="step-label">STEP 01</span><h2>What’s going in your QR?</h2></div><span class="heading-sparkle">✳</span></div>
+          <div class="type-tabs" role="tablist" aria-label="QR code type">
+            <button class="type-tab active" type="button" role="tab" aria-selected="true" data-type="url"><span class="tab-icon">↗</span> URL</button>
+            <button class="type-tab" type="button" role="tab" aria-selected="false" data-type="text"><span class="tab-icon">T</span> Text</button>
+            <button class="type-tab" type="button" role="tab" aria-selected="false" data-type="wifi"><span class="tab-icon">⌁</span> Wi-Fi</button>
+            <button class="type-tab" type="button" role="tab" aria-selected="false" data-type="email"><span class="tab-icon">✉</span> Email</button>
+            <button class="type-tab" type="button" role="tab" aria-selected="false" data-type="phone"><span class="tab-icon">⌕</span> Phone</button>
+          </div>
+          <form id="qr-form" novalidate>
+            <div id="fields" class="fields"></div>
+            <div class="options-heading"><span class="step-label">STEP 02</span><span>Make it yours</span></div>
+            <div class="customize-grid">
+              <label class="field-group color-group"><span class="field-label">QR color</span><span class="color-control"><input id="qr-color" type="color" value="#176b45" aria-label="QR code color"><span id="color-value">#176B45</span></span></label>
+              <label class="field-group color-group"><span class="field-label">Background</span><span class="color-control"><input id="bg-color" type="color" value="#ffffff" aria-label="QR code background color"><span id="bg-value">#FFFFFF</span></span></label>
+              <label class="field-group size-group"><span class="field-label">Size</span><select id="qr-size"><option value="192">Small · 192px</option><option value="256" selected>Medium · 256px</option><option value="320">Large · 320px</option><option value="400">XL · 400px</option></select></label>
+            </div>
+            <button class="generate-button" type="submit"><span class="button-qr-icon">▦</span> Generate QR code <span class="button-arrow">→</span></button>
+            <p class="form-footnote"><span>✦</span> Your content stays private — nothing is uploaded.</p>
+          </form>
+        </div>
+
+        <aside class="preview-panel" aria-label="QR code preview">
+          <div class="preview-topline"><div><span class="step-label">YOUR CREATION</span><h2>QR preview</h2></div><span id="preview-status" class="status-pill"><span class="status-dot"></span> Ready to create</span></div>
+          <div class="preview-stage" id="preview-stage">
+            <div class="qr-frame" id="qr-output"><div class="placeholder-qr" aria-hidden="true"><span class="placeholder-corner corner-tl"></span><span class="placeholder-corner corner-tr"></span><span class="placeholder-corner corner-bl"></span><span class="placeholder-grid">▦</span><span class="placeholder-sparkle">✳</span></div></div>
+            <div id="empty-hint" class="empty-hint">Your QR code will appear here</div>
+          </div>
+          <p id="qr-caption" class="qr-caption">A little square with a lot to say.</p>
+          <div class="download-actions">
+            <button id="download-button" class="download-button" type="button" disabled><span>↓</span> Download PNG</button>
+            <button id="copy-button" class="copy-button" type="button" disabled aria-label="Copy QR code image" title="Copy QR code image"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="7" y="7" width="9" height="10" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M12 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          </div>
+          <div class="preview-footer"><span class="tiny-shield">◈</span> High-quality PNG <span class="footer-divider">·</span> Ready to print</div>
+        </aside>
+      </section>
+
+      <section class="how-it-works" aria-label="How it works"><div class="how-title"><span class="step-label">THREE LITTLE STEPS</span><h2>From idea to <span>scan-ready.</span></h2></div><div class="steps"><article class="step-card"><span class="step-number">01</span><div class="step-symbol">✎</div><h3>Add your content</h3><p>Paste a link, type a note, or choose Wi-Fi, email, or phone.</p></article><article class="step-card"><span class="step-number">02</span><div class="step-symbol">◉</div><h3>Make it yours</h3><p>Pick your colors and size. Your preview updates in a flash.</p></article><article class="step-card"><span class="step-number">03</span><div class="step-symbol">↓</div><h3>Download & share</h3><p>Save a crisp PNG, then add it to anything you like.</p></article></div></section>
+    </main>
+    <footer class="site-footer"><a class="footer-brand" href="#top"><span class="footer-brand-icon">▦</span> greencode</a><span>Made for sharing good things. <span class="footer-heart">♥</span></span><span>© 2026 Greencode</span></footer>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
