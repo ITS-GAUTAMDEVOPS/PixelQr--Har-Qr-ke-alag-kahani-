@@ -10,6 +10,9 @@
   const sizeInput = document.querySelector('#qr-size');
   const colorInput = document.querySelector('#qr-color');
   const bgInput = document.querySelector('#bg-color');
+  const patternInput = document.querySelector('#qr-pattern');
+  const cornerStyleInput = document.querySelector('#corner-style');
+  const cornerDotStyleInput = document.querySelector('#corner-dot-style');
   const toast = document.querySelector('#toast');
   let activeType = 'url';
   let toastTimer;
@@ -96,21 +99,39 @@
       fields.querySelector('input, textarea')?.focus();
       return;
     }
-    if (typeof QRCode === 'undefined') {
+    if (typeof QRCodeStyling === 'undefined') {
       showToast('QR generator did not load. Check your internet connection and try again.', true);
       return;
     }
 
     output.innerHTML = '';
     output.style.setProperty('--qr-bg', bgInput.value);
-    new QRCode(output, {
-      text: value,
+    const qrCode = new QRCodeStyling({
+      data: value,
       width: Number(sizeInput.value),
       height: Number(sizeInput.value),
-      colorDark: colorInput.value,
-      colorLight: bgInput.value,
-      correctLevel: QRCode.CorrectLevel.H
+      type: 'canvas',
+      margin: 0,
+      qrOptions: {
+        errorCorrectionLevel: 'H'
+      },
+      dotsOptions: {
+        color: colorInput.value,
+        type: patternInput.value
+      },
+      backgroundOptions: {
+        color: bgInput.value
+      },
+      cornersSquareOptions: {
+        color: colorInput.value,
+        type: cornerStyleInput.value
+      },
+      cornersDotOptions: {
+        color: colorInput.value,
+        type: cornerDotStyleInput.value
+      }
     });
+    qrCode.append(output);
     qrImage = null;
     emptyHint.hidden = true;
     status.innerHTML = '<span class="status-dot"></span> QR code ready';

@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style/style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.9.2/lib/qr-code-styling.min.js" defer></script>
   <script src="Brain/app.js" defer></script>
 </head>
 <body>
@@ -50,6 +50,12 @@
               <label class="field-group color-group"><span class="field-label">QR color</span><span class="color-control"><input id="qr-color" type="color" value="#176b45" aria-label="QR code color"><span id="color-value">#176B45</span></span></label>
               <label class="field-group color-group"><span class="field-label">Background</span><span class="color-control"><input id="bg-color" type="color" value="#ffffff" aria-label="QR code background color"><span id="bg-value">#FFFFFF</span></span></label>
               <label class="field-group size-group"><span class="field-label">Size</span><select id="qr-size"><option value="192">Small · 192px</option><option value="256" selected>Medium · 256px</option><option value="320">Large · 320px</option><option value="400">XL · 400px</option></select></label>
+            </div>
+            <div class="qr-style-heading"><span class="step-label">STEP 03</span><span>Shape &amp; curves</span></div>
+            <div class="qr-style-grid">
+              <label class="field-group style-group"><span class="field-label">QR pattern</span><select id="qr-pattern"><option value="square">Classic square</option><option value="rounded">Soft rounded</option><option value="dots">Dotted</option><option value="classy">Classy</option><option value="classy-rounded">Classy rounded</option><option value="extra-rounded">Extra rounded</option></select></label>
+              <label class="field-group style-group"><span class="field-label">Corner frame</span><select id="corner-style"><option value="square">Square</option><option value="rounded">Rounded</option><option value="extra-rounded" selected>Extra rounded</option><option value="dot">Dot</option></select></label>
+              <label class="field-group style-group"><span class="field-label">Corner center</span><select id="corner-dot-style"><option value="square">Square</option><option value="dot" selected>Round</option></select></label>
             </div>
             <button class="generate-button" type="submit"><span class="button-qr-icon">▦</span> Generate QR code <span class="button-arrow">→</span></button>
             <p class="form-footnote"><span>✦</span> Your content stays private — nothing is uploaded.</p>
