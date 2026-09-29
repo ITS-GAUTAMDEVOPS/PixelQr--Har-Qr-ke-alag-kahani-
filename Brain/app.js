@@ -156,7 +156,7 @@
     if (!image) return;
     const link = document.createElement('a');
     link.href = image;
-    link.download = `greencode-${activeType}-qr.png`;
+    link.download = `pixelqr-${activeType}-qr.png`;
     document.body.appendChild(link);
     link.click();
     link.remove();

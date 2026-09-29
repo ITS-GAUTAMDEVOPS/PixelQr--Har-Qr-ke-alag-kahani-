@@ -67,22 +67,11 @@ a {
   color: #194b32;
 }
 
-.brand-light {
-  font-weight: 500;
-  color: #7e9c88;
-}
-
-.brand-mark {
-  width: 33px;
-  height: 33px;
-  display: grid;
-  place-items: center;
-  color: var(--green);
-}
-
-.brand-mark svg {
-  width: 29px;
-  height: 29px;
+.brand-logo {
+  display: block;
+  width: 270px;
+  height: 52px;
+  object-fit: contain;
 }
 
 .topbar-note {
@@ -865,20 +854,32 @@ a {
 .footer-brand {
   display: flex;
   align-items: center;
-  gap: 6px;
+  flex: 0 0 auto;
+}
+
+.footer-brand-logo {
+  display: block;
+  width: 110px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.footer-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   color: #597a62;
-  font: 700 12px 'Manrope', sans-serif;
-  letter-spacing: -.4px;
+  font-weight: 600;
 }
 
-.footer-brand-icon {
-  font-size: 16px;
-  color: var(--green);
+.footer-github svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
 }
 
-.footer-heart {
-  color: #74a77f;
-  margin-left: 3px;
+.footer-github:hover {
+  color: var(--green-deep);
 }
 
 .toast {
@@ -1100,7 +1101,15 @@ a {
     gap: 8px;
   }
 
-  .site-footer > span:nth-child(2) {
+  .footer-brand-logo {
+    width: 80px;
+  }
+
+  .footer-github {
+    font-size: 8px;
+  }
+
+  .site-footer > span:last-child {
     display: none;
   }
 }
