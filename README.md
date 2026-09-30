@@ -1,5 +1,5 @@
-# PixelQr ⋆ Wonderfull Qr Generator ⋆
-Developed By @ITS-GAUTAMDEVOPS @thankuu GAUTAM KUMAR
+# PixelQr ⋆ @ITS-GAUTAMDEVOPS ⋆
+
 PixelQR is a modern and customizable QR Code Generator designed to create professional-looking QR codes quickly and easily. With a clean green & white premium interface, PixelQR makes it simple to generate, customize, and download QR codes for different types of information.
 
 # UI Preview: 
